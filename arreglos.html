@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Arreglos | JavaScript</title>
+</head>
+<body>
+    <script type="text/javaScript">
+        /*
+            Arreglos: JavaScript
+
+            Los arreglos nos permiten acceder de manera ordenada 
+            a la posicion en la que estan cada uno de los elementos
+
+            existe 2 formas de declaración 
+
+            var arreglo = new Array();
+            var arreglo = []; //esta se encuentra estandarizada W3C
+
+            push: nos permite colocar un elemento al final del arreglo
+            pop: nos permite eliminar un elemento al final del arreglo
+            unshift: nos permite colocar un elemento al principio del arreglo
+            shift: nos permite remover el primer elemento del arreglo
+
+        */
+
+        var arreglo = [20, 10, 5];
+
+        //imprime una posicion
+        console.log(arreglo[0]);
+
+       /* arreglo.pop();
+        arreglo.shift();*/
+
+        arreglo.push(7);
+        arreglo.unshift(30);
+        
+        //inprime todo el arreglo
+        console.log(arreglo);
+
+        //normalmente se iteran para imprimir los valores del arreglo
+        for (var i = 0; i < arreglo.length; i++)
+        {
+            console.log(arreglo[i]);
+        }
+
+        //para optimizar el arreglo se realiza de manera inversa
+        for (var j = arreglo.length - 1; j >= 0; j--)
+        {
+            console.log(arreglo[j]);
+        }
+
+    </script>
+</body>
+</html>

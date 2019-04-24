@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Metodos de Arreglos | JavaScript</title>
+</head>
+<body>
+    <script type="text/JavaScript">
+        
+        /*
+            Metodos de arreglos:
+            
+            sort: ordena el arreglo de menor a mayor. Se necesita de un 
+            elemento que permita el control de las entradas en este 
+            caso aplica la funcion ordenación.
+
+            reverse: invierte el arreglo
+        */
+        function ordenacion(a, b)
+        {
+          /* if (a > b)
+            {
+                return 1;
+            }
+
+            else if (a < b)
+            {
+                return - 1;
+            }
+
+            else if(a === b)
+            {
+                return 0;
+            }*/
+
+            //Forma optimizada
+            return a - b;
+           
+        }
+
+        var arreglo = [2, 5, 1, 10, 20];
+
+        //ordena de menor a mayor 
+        /*
+            Se necesita de un parametro para el control 
+            de muestras
+        */
+
+        arreglo.sort(ordenacion);
+        console.log(arreglo);
+
+        arreglo.reverse();
+        console.log(arreglo);
+
+        /*
+            Como convetir una cadena en un arreglo
+
+            lo realiza un metodo llamado split que por parametro
+            necesita un separador en este caso la coma. convierte
+            la cadena en un arreglo
+        */
+
+        var arreglo2 = "a, b, c, 2".split(",");
+        console.log(arreglo2);
+
+        var arreglo3 = "a, b, c, 2".split("b");
+        console.log(arreglo3);
+
+        /*
+            Como convetir un arreglo a una cadena
+
+            lo realiza un metodo llamado join que devuelve un string
+            que por parametro necesita un separador en este caso la coma
+        */
+
+        arreglo = arreglo.join();
+        console.log(arreglo);
+
+        arreglo2 = arreglo2.join();
+        console.log(arreglo2);
+
+    </script>
+</body>
+</html>

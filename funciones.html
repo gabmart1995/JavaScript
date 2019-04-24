@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funciones | JavaScript</title>
+</head>
+<body>
+    <script type="text/javascript">
+       
+       /*
+            Funciones JavaScript
+            permite ejecutar codigo dentro de cualquier archivo JavaScript
+
+            La palabra return nos permite retornar un valor al finalizar la función,
+            todas las funciones de JavaScript retornan algo.
+
+            Una pecurialidad de las funciones es que son objetos
+            puedes almacenar las funciones en variables para dar mejor flexibilidad
+            al programa
+        */
+           
+        //imprime los resultados.
+        console.log(suma(2));
+        console.log(resta(24, 8));
+        console.log(multiplicacion(5, 4));
+        console.log(division(20, 10));
+
+        //compara las variables y luego retorna la operacion
+        function suma (a, b)
+        {
+            a = a || 0;
+            b = b || 0;
+
+            return a + b;
+        }
+
+        function resta(a, b) 
+        {
+            a = a || 0;
+            b = b || 0;
+            
+            return a - b;
+        }
+
+        function multiplicacion(a, b)
+        {
+            a = a || 0;
+            b = b || 0;
+            
+            return a * b;
+        }
+
+        function division(a, b)
+        {
+            a = a || 0;
+            b = b || 0;
+            
+            return a / b;
+        }
+
+    </script>
+</body>
+</html>
