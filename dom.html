@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>DOM - Document Object Model</title>
+</head>
+<body>
+	<style type="text/css" media="screen">
+		
+		.mi_clase 
+		{
+			background-color: red;
+			padding: 10px;
+		}
+
+	</style>
+
+	<div id="mi_div"></div>
+	<div class="mi_clase"></div>
+	<p class="mi_clase"></p>
+
+	<script type="text/javascript">
+		
+		/*
+			Document Object Model DOM
+
+			document.getElementById(): toma el id del html.
+			document.getElementsByClassName(): toma la clase css
+			document.getElementsByTagName(): busca los elementos por la etiqueta
+			classList.add(): añade una clase al elemento.
+
+			En las versiones nuevas de JavaScript se agrega la nueva version del 
+			DOM llamado
+
+			querySelector(): devuelve un solo elemento el primero que encuentre
+			querySelectorAll() toma todos los elementos
+
+			JQuery utiliza funciones para simplificar la búsqueda de los elementos
+		*/
+
+		function $(etiqueta)
+		{
+			return document.querySelector(etiqueta);
+		}
+
+		//DOM
+		var div = document.getElementById("mi_div");
+		div.classList.add("mi_clase");
+
+		var div2 = document.getElementsByClassName("mi_clase");
+		console.log(div2);
+
+		var div3 = document.getElementsByTagName("div");
+		console.log(div3);
+
+		//QS
+		var div4 = document.querySelector("div");
+		console.log(div4);
+
+		var div5 = document.querySelectorAll("div");
+		console.log(div5);
+		
+		//Ejemplo de un selector de Jquery
+		var selector = $(".mi_clase");
+		console.log(selector);
+
+	</script>
+</body>
+</html>

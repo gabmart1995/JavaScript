@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Cadenas</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			/* Cadenas en JavaScript */
+			
+			var nombre = "Gabriel"
+			var cadena = "Hola " + nombre;
+
+			//imprime la cadena
+			console.log(cadena);
+
+			//imprime la longitud de la cadena
+			console.log(cadena.length);
+
+			/*
+
+				indexOf: devuelve la longitud de la cadena del elemento seleccionado
+				var busqueda = cadena.indexOf("Gabriel");
+				console.log(busqueda); 
+
+				Sino encuentra la palabra devuelve el valor -1
+
+			*/
+
+			//puedes utilizarlo para comparar elementos y realizar busquedas
+			if (nombre.indexOf("Gabriel") != -1)
+			{
+				console.log("Bienvenido " + nombre + " eres el tutor del curso");
+			}
+
+			else 
+			{
+				console.log("No es el tutor del curso");
+			}
+
+			console.log(nombre.indexOf("Gabriel"));
+
+			//imprime una letra en especifico solo agrega la posicion
+			console.log(nombre[4]);
+
+			//imprime la ultima letra del arreglo
+			console.log(nombre[nombre.length - 1]);
+
+			//otra forma de imprimirla es:
+			console.log(nombre.charAt(1));
+
+			//reemplaza el valor de la variable por el segundo parametro
+			nombre = nombre.replace("Gabriel", "Alfonso");
+			console.log("Mi nuevo nombre es: " + nombre);
+
+			//obtiene los datos especificos de un arreglos (No es inclusivo)
+			console.log(nombre.slice(2, 5));
+
+			//todo mayuscula
+			console.log(nombre.toUpperCase());
+
+			//todo minuscula
+			console.log(nombre.toLowerCase());
+
+		</script>
+	</body>
+</html>

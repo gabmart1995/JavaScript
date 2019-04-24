@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Condicionales</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			//Uso de condicionales en JavaScript
+
+			/* Operadores logicos
+
+				||: OR
+				&&: AND
+				== ===: IGUAL A
+				!= !==: DIFERENTE DE
+				!: NOT 
+
+				bool => true || false 
+			*/
+
+			var numero1 = 30;
+			var numero2 = "30";
+
+			//conidcion invertida
+			if (!(numero2 > numero1))
+			{
+				console.log("Entre al bloque");
+			}
+
+			//ambas condiciones deben ser verdaderas
+			if (numero1 && true)
+			{
+				console.log("Entre al bloque 2");
+			}
+
+			//una de las condiciones debe ser verdadera
+			if (numero2 || false)
+			{
+				console.log("Entre al bloque 3");
+			}
+
+			//transforma el datos y los compara
+			if (numero1 == numero2)
+			{
+				console.log("Entre al bloque 4");
+			}
+
+			//compara los tipos directamente (recomendado)
+			if (numero1 === numero2)
+			{
+				console.log("Devuelve verdadero");
+			}
+
+			else if (false) 
+			{
+				console.log("Hola");
+			}
+
+			else 
+			{
+				console.log("Hola 2");
+			}
+
+		</script>
+	</body>
+<html>

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Type of | JavaScript</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		/*
+			Type of:
+
+			Esta palabra reservada permite identificar cual es 
+			el tipo de dato está contenida dentro de una variable
+		*/
+
+		var number = 0;
+		var object = {};
+		var string = "Hola mundo"
+		var hola = null;
+
+		//retorna e imprime el tipo de dato almacenado en la variable
+		console.log(typeof number);
+		console.log(typeof object);
+		console.log(typeof string);
+
+		//condicion que valida que una variable esta declarada
+		if (typeof hola == "undefined")
+		{
+			console.log("esta variable no existe");
+		}
+
+		/*
+			Null and Undefined
+
+			null: es una palabra reservada que indica la ausencia de un valor dentro
+			de una variable
+
+			undefined: es una variable global de JavaScript, que se muestra cuando 
+			no existe una variable declarada 
+
+			undefined se utiliza como condicional para verificar si una variable está definida o no
+
+			null se utiliza cuando el tipo de dato de una variable esta definida o no
+		*/
+
+		if (typeof variable == "undefined")
+		{
+			console.log("esta variable no esta declarada");
+		}
+
+		if (typeof hola != null) 
+		{
+			hola = "Hola mundo";
+			console.log(hola);
+		}
+
+	</script>
+</body>
+</html>

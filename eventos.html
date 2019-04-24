@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Eventos | JavaScript</title>
+</head>
+<body>
+	<button onclick="clic()">
+		click para un alert
+	</button>
+	<button onmouseover="clic()">
+		pasame el mouse encima
+	</button>
+	<button onmouseout="clic()">
+		quitame el mouse encima
+	</button>
+
+	<div id="mi_div">
+		<button id="mi_btn">
+			click para un alert
+		</button>
+	</div>
+
+	<script type="text/javascript">
+		
+		function clic()
+		{
+			alert("esto fue disparado por el boton");
+		}
+
+		function another_clic()
+		{
+			alert("esto fue disparado por el div");
+		}
+
+		/*
+			Eventos en JavaScript
+
+			Permite enlazar codigo Javascript a acciones dentro de 
+			la página web 
+
+			onclick: se ejecuta cuando el usuario realiza un click
+			onmouseover: se ejecuta cuando el maouse pasa por encima
+			onmouseout: se ejecuta cuando el mouse se retira del elemento
+
+			Tambien podemos utilizar listener para controlar eventos
+
+			addEventListener(); ejecuta el evento en JavaScript
+
+			Recibe 3 parametros 
+			1.- el nombre del evento JavaScript
+			2.- el nombre de la funcion que va a ejecutar
+			3.- la forma en la que va a ejecutar true/false 
+
+			boobling es desde el boton hacia afuera
+			capture: es desde el div hacia el boton
+		*/
+
+		document.getElementById("mi_div").addEventListener("click", another_clic, false);
+		document.getElementById("mi_btn").addEventListener("click", clic, true);
+
+	</script>
+</body>
+</html>

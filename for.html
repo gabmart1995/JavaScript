@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ciclo for</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		/*clclo for: 
+			Recibe 3 parametros 
+			1.- inicializacion
+			2.- condicion
+			3.- incremento
+		*/
+
+		var mensaje = ["Hola", "mundo"];
+
+		for (var i = 1; i <= 10; i++) 
+		{
+			console.log(i);
+		}
+
+		for (var j = 0; j < mensaje.length; j++)
+		{
+			//imprime el arreglo
+			//console.log(mensaje[j]);
+
+			if (j == 0)
+			{
+				console.log(mensaje[j]);
+				break; //rompe el ciclo
+			}
+		}
+
+		for (var k = 2; k <= 10; k++)
+		{
+			if ((k % 2) === 0)
+			{
+				console.log(k);
+			}
+
+			else 
+			{
+				continue;  //continua el ciclo
+			}
+		}	
+
+	</script>
+</body>
+</html>

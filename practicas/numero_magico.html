@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Práctica n° 1 | numero magico</title>
+</head>
+<body>
+	<p>
+		Adivina el número secreto y colócalo en la ventana que se despliega.
+	</p>
+	<script type="text/javascript">
+
+		//Parctica n° 1 Numero Mágico
+
+		var max = 100;
+		var min = 1;
+
+		/*
+			Para obtener el aleatorio se necesita incluir los parametros del 
+			minimo y máximo de la siguiente manera 
+
+			Math.random(): obtiene un numero aleatorio
+			prompt(): toma los datos de teclado
+			parseInt(): parsea un string a entero
+		*/
+
+		var numero_secreto = Math.random() * (max - min) + min;
+		numero_secreto = parseInt(numero_secreto);
+
+		//imprime la respuesta por consola
+		console.log(numero_secreto);
+
+		//mensaje al usuario
+		var mensaje = "Ingresa un número entre el 0 el 100 para adivinar" +
+						" el número magico:";
+
+		while (true)
+		{
+			var numero_usuario = prompt(mensaje, "0");
+
+			//parsea el string a entero
+			numero_usuario = parseInt(numero_usuario);
+
+			if (numero_usuario > 0)
+			{
+				if (numero_usuario === numero_secreto) 
+				{
+					alert("Felicidades, ganaste el juego.");
+					break;
+				}
+
+				else if (numero_usuario > numero_secreto)
+				{
+					mensaje = "Lo sentimos, el número mágico que ingresaste es muy alto";
+				}
+
+				else if (numero_usuario < numero_secreto)
+				{
+					mensaje = "Lo sentimos, el número mágico que ingresaste es muy bajo";
+				}
+			}
+
+			else if (numero_usuario === 0) 
+			{
+				break;
+			}
+
+			else 
+			{
+				mensaje = "Por favor ingrese un numero entre el 0 y el 100";
+			}
+		}
+
+	</script>
+</body>
+</html>
