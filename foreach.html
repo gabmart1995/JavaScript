@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Foreach | Javascript</title>
+</head>
+<body>
+    <script>
+          /*
+            Foreach | Javascript Ecma Script 5
+
+            Map, nos permite filtrar de forma inteligente los arreglos. pero no 
+            retorna un arreglo nuevo. Simplemente nos permite iterar cada uno 
+            de los elementos del arreglo
+
+            incluye 2 parametros:
+
+            1.- el elemento dentro del arreglo
+            2.- indice desde donde inicia
+            3.- Nombre del arreglo
+
+            Es muy similar a la palabra reservada for
+        */
+
+        var numeros = [2, 4, 6, 8];
+
+        numeros.forEach(function(elemento, index, arreglo)
+        {
+            arreglo[index] = Math.pow(elemento, 2);
+        });
+
+        console.log(numeros);
+
+    </script>
+</body>
+</html>

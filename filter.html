@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Filter | JavaScript</title>
+</head>
+<body>
+    <script>
+    
+        //arreglos
+        var numeros = [10, 2, 3, 5, 9, 20, 22, 27];
+        var num_pares = [];
+        var num_impares = [];
+
+        for (var i = 0; i < numeros.length; i++) 
+        {
+            //lo almacena en una variable
+            var numero = numeros[i];
+
+            if ((numero % 2) === 0)
+            {
+                //almacena los números pares en el arreglo
+                num_pares.push(numero);
+            }
+
+            else
+            {
+                num_impares.push(numero);
+            }
+        }
+
+        console.log(num_pares);
+        console.log(num_impares);
+
+
+        /*
+            Filter | Javascript Ecma Script 5
+ 
+            Es un metodo que toma como parametro un callback o una funcion
+            y construye un nuevo arreglo con los elementos que considera verdaderos
+
+            Se necesita de 3 parametros:
+            1.- La varible que contiene el arreglo
+            2.- El index que recorre el arreglo
+
+            Es la version optimizada de la version anterior simplemente construye 
+            un nuevo arreglo con lo valores que retornan verdaderos.
+
+        */
+
+        //numeros pares
+        var arreglo = numeros.filter(function(numero)
+        {
+            return (numero % 2) === 0;
+        });
+
+        //numeros impares
+        var arreglo2 = numeros.filter(function(numero)
+        {
+            return (numero % 2) !== 0;
+        });
+
+        console.log(arreglo);
+        console.log(arreglo2);
+
+    </script>
+</body>
+</html>

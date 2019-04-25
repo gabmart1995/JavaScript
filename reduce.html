@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reduce | JavaScript</title>
+</head>
+<body>
+    <script>
+        
+        /*
+            Reduce | Javascript Ecma Script 5
+
+            Igual que la funcion join une los elementos de
+            un arreglo y lleva un registro de retorno conocido como
+            valor anterior. Recibe 3 parametros
+
+            1.- el valor anterior retornado
+            2.- el valor actual
+            3.- el index
+            4.- el nombre del arreglo
+
+        */
+
+        var letras = ["h", "o", "l", "a"];
+        
+        //imprime el arreglo unido
+        console.log(letras.join(""));
+        var palabras = letras.reduce(function(v_anterior, v_actual, index, arreglo)
+        {
+            //es conocido como el caso de sumatoria de valor retornado
+            return v_anterior + v_actual;
+        });
+
+        //imprime los numeros
+        console.log(palabras);
+
+        var numeros = [20, 40, 5, 9];
+        var suma = numeros.reduce(function(v_anterior, v_actual)
+        {
+            return v_anterior + v_actual;
+        });
+
+        console.log(suma);
+
+        var suma2 = 0;
+        for(var i = 0; i < numeros.length; i++)
+        {
+            suma2 += numeros[i];
+        }
+
+        console.log(suma2);
+
+    </script>
+</body>
+</html>

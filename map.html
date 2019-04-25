@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Map | JavaScript</title>
+</head>
+<body>
+    <script>
+       
+        var numeros = [1, 4, 9, 16, 25];
+        var cuadrados = [];
+        var potencias = [];
+        var cuadrados2 = [];
+        var potencias2 = [];
+
+        for (var i = 0; i < numeros.length; i++) 
+        {
+            //ejecuta la funcion y lo almacena en el arreglo
+            var raiz = numeros[i];
+            var potencia = numeros[i];
+
+            raiz = Math.sqrt(raiz, 2);
+            potencia = Math.pow(potencia, 2);
+
+            cuadrados.push(raiz);
+            potencias.push(potencia);
+        }
+
+        console.log(numeros);
+        console.log(cuadrados);
+        console.log(potencias);
+
+
+         /*
+            Map | Javascript Ecma Script 5
+
+            Map, nos permite filtrar de forma inteligente los arreglos. Debes
+            incluir una funcion de retorno (callback)
+
+            incluye 2 parametros:
+
+            1.- el elemento del arreglo
+            2.- indice desde donde inicia
+            3.- nombre del arreglo
+        */
+
+        var cuadrados2 = numeros.map(function(elemento)
+        {
+            return Math.sqrt(elemento, 2);
+        });
+
+        var potencias2 = numeros.map(function(elemento)
+        {
+            return Math.pow(elemento, 2);
+        });
+
+        console.log(numeros);
+        console.log(cuadrados2);
+        console.log(potencias2);
+
+    </script>
+</body>
+</html>
