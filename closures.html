@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Closures | Javascript</title>
+</head>
+<body>
+    <button id="btn">click</button>
+    <script>
+        
+        /*
+            Closures | JavaScript
+
+            Son un termino en programación que se puede aplicar a JavaScript
+            una práctica recomendada es introducir los elementos de las variables
+            globales dentro de una función. Es practicamente incluir una funcion dentro 
+            de una función.
+
+            Los closures son funciones hijos que se ejecutan dentro de la clase padre.
+            lo malo es que se ejecutan que una modificación a la funcion padre o hijo puede
+            modificar el flujo del programa.
+        */
+
+        (function()
+        {
+             //esta funcion se ejecuta al segundo
+             setTimeout(function() 
+            {
+                console.log(hola_mundo("Alta programación")); 
+            }, 1000);
+            
+            document.getElementById("btn").addEventListener("click", function()
+            {
+                console.log("Hizo clic en mí");
+            });
+
+            function hola_mundo(nombre)
+            {
+                function construct()
+                {
+                    return "Hola " + nombre;
+                }
+
+                //ejecuta la funcion constructor y la retorna
+                return construct();
+            }      
+        })();
+
+    </script>    
+</body>
+</html>
