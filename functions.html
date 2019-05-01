@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Funciones 2 | JavaScript</title>
+</head>
+<body>
+    <script>
+
+       /*
+            Funciones 2 | JavaScript
+
+            En JavaScript existen varias forma de declarar objetos podemos
+            utilizar prototpos de funciones o variables JSON para
+            ejecutar los metodos.
+
+       */     
+
+        function Tutor(nombre, apellido)
+        {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            
+            if (typeof apellido !== "undefined")
+            {   
+                this.nombre_completo = nombre + " " + apellido;
+            }
+
+            else 
+            {
+                this.nombre_completo = nombre;
+            }
+
+            this.saludar = function()
+            {
+                console.log("Hola a todos soy " + this.nombre_completo);
+            }
+        };
+
+        //se llaman los objetos
+        var persona1 = new Tutor("Gabriel", "Martínez");
+        persona1.saludar();
+        
+        var persona2 = new Tutor("José");
+        persona2.saludar();
+
+    </script>
+</body>
+</html>

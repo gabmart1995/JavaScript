@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON | JavaScript</title>
+</head>
+<body>
+    <script>
+        
+        /*
+            JSON | JavaScript Object Notation
+
+            Una forma de declarar objetos es utilizar el formato JSON.
+            Usa un formato de diccionario o Hashes
+
+            Se declaran utilizando llaves y cada uno de los elementos tienes
+            una clave. Conocidos como elemento clave-valor  
+
+            Para poder acceder a los datos se llama la clave, puede almacenar todo
+            tipo de varibles y funciones asegurate que los elementos sean separados 
+            por comas y el último elemento no lo lleva     
+
+            this: nos permite acceder a los demas atributos de la clase JSON
+        */
+
+        //variable JSON
+        var curso = 
+        {
+            titulo: "Curso de JavaScript",
+            videos: 19,
+            tutor: "Gabriel Martínez",
+            
+            introduccion: function()
+            {
+                console.log("Bienvenido al curso: " + this.titulo
+                + " que tiene " + this.videos + " videos");
+
+                //obtiene el nombre
+                this.obtenerNombre();
+            },
+
+            obtenerNombre: function()
+            {
+                console.log("El nombre del tutor del curso es: " + this.tutor);
+            }
+        };
+
+        //imprime el nombre del curso
+        console.log(curso["titulo"]);
+        console.log(curso["tutor"]);
+        console.log(curso["videos"]);
+
+        //otra forma de imprimir varibles JSON
+        console.log(curso.titulo);
+        console.log(curso.tutor);
+        console.log(curso.videos);
+        console.log(curso.introduccion());
+
+    </script>
+</body>
+</html>
