@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Setters y Getters | JavaScript</title>
+</head>
+<body>
+    <script>
+        
+        /*
+            Setters y Getters | JavaScript
+
+            son una parte muy importante de la programación orientada a 
+            objetos son funciones especiales en las que podemos leer o 
+            modificar un atributo de una clase, de forma segura.
+        */
+
+        //JSON
+        var curso = 
+        {
+            titulo: "JavaScript",
+            videos: 19,
+            profesor: "Gabriel Martínez",
+            
+            introduccion: function()
+            {
+                console.log("Bienvenido al curso: " + this.titulo
+                + " que contiene " + this.videos + " videos");
+            },
+
+            /*
+                Ecma Script 5 permite instanciar de forma automatizada los
+                getters y los setters
+
+                Ten cuidado al utilizarlos no utilices el nombre de las funciones
+                como una variable. porque crea recursividad.
+            */
+
+            get tutor() 
+            {
+                return this.profesor.toUpperCase();
+            },
+
+            set tutor(tutor)
+            {
+                if ((typeof tutor === "undefined") || (tutor === ""))
+                {
+                    return;
+                }
+
+                else
+                {
+                    this.profesor = tutor;
+                } 
+            },
+
+            //forma maunal
+            establecerTutor: function(tutor)
+            {
+                if ((typeof tutor === "undefined") || (tutor === ""))
+                {
+                    return;
+                }
+
+                else
+                {
+                    this.profesor = tutor;
+                }
+            },
+
+            obtenerTutor: function()
+            {
+               return this.profesor.toUpperCase();
+            }
+        };
+
+        //forma manual
+        curso.establecerTutor();
+        console.log(curso.obtenerTutor());
+
+        //se llama de esta forma  Ecma Script 5
+        curso.tutor = "José Peréz";
+        console.log(curso.tutor);
+
+    </script>
+</body>
+</html>

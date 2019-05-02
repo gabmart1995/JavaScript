@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prototype | JavaScript</title>
+</head>
+<body>
+    <script>
+        
+        /*
+            Prototype | JavaScript
+
+            Los objetos en JavaScript se crean a partir de prototipos
+            que identifican a que función pertenecen y el tipo de contenido
+            representan.
+
+            Las funciones o variables prototipos permite añadir variables o funciones 
+            instanciarse dentro o fuera de un metodo.
+
+            Esto nos permite utilizar la herencia en JavaScript ya que lenguaje 
+            no posee una palabra reservada para la herencia.
+        */
+
+        //instanciacion de variable prototipo dentro de la clase
+        Tutor.prototype.edad = 25;
+
+         //instanciacion de funcion prototipo dentro de la clase
+        Tutor.prototype.inciarCurso = function()
+        {
+            console.log("Bienvenido a este nuevo tutorial");
+        }
+
+        //funcion principal
+        function Tutor(nombre, apellido)
+        {
+            //atributos
+            this.nombre = nombre;
+            
+            if (typeof apellido !== "undefined") 
+            {
+                this.nombre_completo = nombre + " " + apellido;
+            }
+
+            else 
+            {
+                this.nombre_completo = nombre;
+            }
+
+            this.saludar = function()
+            {
+                console.log("Hola a todos soy " + this.obtenerNombre());
+            }
+
+            this.obtenerNombre = function()
+            {
+                return this.nombre_completo
+            }
+        }
+
+        var persona1 = new Tutor("Gabriel", "Martínez");
+        persona1.inciarCurso();
+        persona1.saludar();
+
+        var persona2 = new Tutor("José");
+        persona2.inciarCurso();
+        persona2.saludar();
+        
+        //imprime la edad
+        console.log(persona1.edad);
+        console.log(persona2.edad);
+
+    </script>
+</body>
+</html>
