@@ -42,16 +42,6 @@
 
            //retorna los componentes
            return  elements;
-       },
-
-       down: function()
-       {
-
-       },
-
-       up: function()
-       {
-
        }
     }
 })();
@@ -65,29 +55,37 @@
         this.canvas.width = board.width;
         this.canvas.height = board.height;
         this.board = board;
-
-        //esta propiedad nos permite dibujar en JavaScript
         this.ctx = canvas.getContext("2d");
+
+         // ctx: nos permite dibujar en JavaScript
+    }
+
+    self.BoardView.prototype =
+    {
+        draw: function()
+        {
+            for (var i = this.board.elements.length - 1; i >= 0; i--)
+            {
+                var el = this.board.elements[i];
+                draw(this.ctx, el);
+            }
+        }
     }
 
     //funcion que permite dibujar los elmentos
     function draw(ctx, element)
     {
+        /*
+            hasOwnProperty: permite identificar si el elemento posee 
+            un atributo llamado kind
+        */
+
         if ((element !== null) && (element.hasOwnProperty("kind")))
         {
             switch (element.kind)
             {
                 case "rectangle":
-                    //dibuja el elemento
-                    ctx.fillRect(
-                        element.x, 
-                        element.y, 
-                        element.width, 
-                        element.height);
-                break;
-    
-                case "square":
-                    //dibuja el elemento
+                    //dibuja el elemento rectangulo
                     ctx.fillRect(
                         element.x, 
                         element.y, 
@@ -96,11 +94,6 @@
                 break;
             }
         }
-
-        /*
-            hasOwnProperty: permite identificar si el elemento posee 
-            un atributo llamado kind
-        */
     }
 })();
 
@@ -109,44 +102,78 @@
     //clase que construye las barras de juego
     self.Bar = function(x, y, width, height, board)
     {
-        //x, y corresponden las cordenadas de la pantalla
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
         this.board = board;
-
-        //ingresa los elementos dentro del arreglo 
-        this.board.bars.push(this);
-
-        //añade la propiedad dentro de la varible
         this.kind = "rectangle";
+        this.board.bars.push(this);
+        this.speed = 10;
+        
+        // x, y corresponden las cordenadas de la pantalla
+        // kind: añade la propiedad dentro de una variable
+        // push: ingresa todos los elementos anteriores dentro del arreglo 
     }
 
-    self.Bar.prototype =
+    self.Bar.prototype = 
     {
-        draw: function()
+        down: function()
         {
-            for (var i = this.board.elements.length - 1; i >= 0; i--)
-            {
-                var el = this.board.elements[i];
-                draw(ctx, el);
-            }
+            this.y += this.speed;
+        },
+ 
+        up: function()
+        {
+            this.y -= this.speed;
+        },
+
+        /*
+            Esta funcion permite retornar en que coordenadas estan x & y.
+            
+            Si intentamos acceder a la clase desde un string se ejecutara
+            la funcion toString de forma automatica.
+        
+        */
+        toString: function()
+        {
+            return "x: " + this.x + " y: " + this.y;
         }
     }
 })();
 
+var canvas = document.getElementById("canvas");
+var board = new Board(800, 400);
+var board_view = new BoardView(canvas, board);
+var bar = new Bar(20, 100, 40, 100, board);
+var bar = new Bar(735, 100, 40, 100, board);
+
+/*
+    El atributo "keydown" permite obtener el numero del caracter ASCII que se 
+    presiona en el teclado. En este caso es la tecla up and down
+*/
+
+document.addEventListener("keydown", function(event)
+{
+    if (event.keyCode == 38)
+    {
+        bar.up();
+    }
+
+    else if (event.keyCode == 40)
+    {
+        bar.down();
+    }
+
+    //imprime las nuevas coordenadas por la consola
+    console.log(bar.toString());
+});
+
 //ejecuta la funcion cuando se ejecuta la ventana
 window.addEventListener("load", main);
 
-//controlador
 function main()
 {
-    var canvas = document.getElementById("canvas");
-    var board = new Board(800, 400);
-    var board_view = new BoardView(canvas, board);
-    var bar = new Bar(20, 100, 40, 100, board);
-
     //dibuja las barras
     board_view.draw();
 }
