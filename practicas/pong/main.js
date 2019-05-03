@@ -128,17 +128,17 @@
             this.y -= this.speed;
         },
 
-        /*
-            Esta funcion permite retornar en que coordenadas estan x & y.
-            
-            Si intentamos acceder a la clase desde un string se ejecutara
-            la funcion toString de forma automatica.
-        
-        */
         toString: function()
         {
             return "x: " + this.x + " y: " + this.y;
         }
+
+        /*
+            La funcion anterior permite retornar en que coordenadas estan x & y.
+            
+            Si intentamos acceder a la clase desde un string se ejecutara
+            la funcion toString de forma automatica.
+        */
     }
 })();
 
@@ -149,7 +149,7 @@ var bar = new Bar(20, 100, 40, 100, board);
 var bar = new Bar(735, 100, 40, 100, board);
 
 /*
-    El atributo "keydown" permite obtener el numero del caracter ASCII que se 
+    El atributo "keydown" permite obtener el número del caracter ASCII que se 
     presiona en el teclado. En este caso es la tecla up and down
 */
 
