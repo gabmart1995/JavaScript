@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Template Strings | JavaScript</title>
+</head>
+<body>
+    <script>
+        /*
+            Template Strings | JavaScript Edma Script 6
+
+            Son propiedades especiales que poseen las cadenas dentro
+            una variable como la continuacion de las cadenas y 
+            interpolacion de datos.
+
+            Ver videos de JavaScript
+
+            tagged: permite formar cadenas templates dentro de JavaScript, 
+            separa las expresiones que se estan trabajando.
+        */
+
+        var template = "hola mundo";
+        var template2 = "hola" +
+        " mundo";
+        
+        console.log(template);
+        console.log(template2);
+
+        var nombre = "Gabriel";
+        var saludo = "Hola " + nombre + " buen día";
+
+        console.log(saludo);
+
+        function saludo2()
+        {
+            return 5 + 2;
+        }
+
+        console.log("Hola " + saludo2() + " buen día");
+
+    </script>
+</body>
+</html>

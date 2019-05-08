@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arrow Functions | JavaScript</title>
+</head>
+<body>
+    <script>
+        var numeros = [1, 2, 3, 4, 5];
+
+        //se eleva la potencia a la 2 ES5
+        var elevado_2 = numeros.map(function(n) 
+        {
+            return Math.pow(n, 2);
+        });
+
+        /*
+            Arrow Functions | JavaScript
+
+            Simplemente es una forma más simplificada
+            de ejecución de funciones. Son una alternativa
+            al keyword function
+        */
+
+        //se eleva la potncia a 3
+        var elevado_3 = numeros.map((n) => 
+        {
+            return Math.pow(n, 3)
+        });
+
+        console.log(elevado_2);
+        console.log(elevado_3);
+
+        function Tutor()
+        {
+            this.nombre = "Gabriel";
+
+            setInterval(function()
+            {
+                this.nombre = "codigo facilito";
+            }, 500);
+        }
+
+        var tutor = new Tutor();
+        console.log(tutor.nombre);
+
+        setTimeout(function()
+        {
+            console.log(tutor.nombre);
+        }, 1000);
+
+    </script>
+</body>
+</html>
