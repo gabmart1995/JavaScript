@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clases | JavaScript</title>
+</head>
+<body>
+    <script>
+        
+        /*
+            Class - Herencia | JavaScript
+
+            Es una forma más legible de declarar objetos con JavaScript
+            es una parte más popular de este lenguaje
+
+            Todavia no esta soportado por todos los navegadores, pero funciona
+            como un lenguaje formal de programación y se aplica un proceso de herencia
+            se utiliza la nomenclatura use strict para ofrecer mayor rendimiento
+ 
+        */
+        
+        'use strict';
+        class Human
+        {
+            constructor(raza)
+            {
+                this.raza = raza;
+            }
+
+        }
+
+        class Tutor extends Human 
+        {
+            constructor(nombre, apellido, raza)
+            {
+                super(raza);  //invoca metodos
+                this.nombre = nombre;
+                this.apellido = apellido;
+            }
+
+            raza_nombre()
+            {
+                return this.raza + " " + this.nombre + " " + this.apellido;
+            }
+        }
+
+       var tutor = new Tutor("Gabriel", "Martinez", "Americano");
+       console.log(tutor.raza_nombre());
+
+       class Human2 
+       {
+            constructor(nombre, apellido)
+            {
+                this.nombre = nombre;
+                this.apellido = apellido;
+                this.mensaje = null;
+            }
+
+            sumar(num1, num2)
+            {
+                return num1 + num2;
+            }
+       }
+
+       class Tutor2 extends Human2
+       {
+            saludo()
+            {
+                return super.mensaje = "Hola Mundo";
+            }
+
+            operacion(num1, num2)
+            {
+                return super.sumar(num1, num2);
+            }
+       }
+
+       var tutor2 = new Tutor2("Gabriel", "Martínez");
+       console.log(tutor2.saludo());
+       console.log(tutor2.operacion(5, 5));
+        
+    </script>
+</body>
+</html>

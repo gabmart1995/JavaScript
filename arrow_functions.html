@@ -22,6 +22,11 @@
             Simplemente es una forma más simplificada
             de ejecución de funciones. Son una alternativa
             al keyword function
+
+            Arrow Functions | JavaScript
+
+            Heredan codigo del Padre sirven para cambiar atributos de la
+            clase padre.
         */
 
         //se eleva la potncia a 3
@@ -37,7 +42,7 @@
         {
             this.nombre = "Gabriel";
 
-            setInterval(function()
+            setTimeout(() =>
             {
                 this.nombre = "codigo facilito";
             }, 500);
@@ -45,11 +50,6 @@
 
         var tutor = new Tutor();
         console.log(tutor.nombre);
-
-        setTimeout(function()
-        {
-            console.log(tutor.nombre);
-        }, 1000);
 
     </script>
 </body>
