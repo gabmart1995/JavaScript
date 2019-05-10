@@ -16,8 +16,9 @@
             es una parte más popular de este lenguaje
 
             Todavia no esta soportado por todos los navegadores, pero funciona
-            como un lenguaje formal de programación y se aplica un proceso de herencia
-            se utiliza la nomenclatura use strict para ofrecer mayor rendimiento
+            como un lenguaje formal de programación e incluso se aplica herencia.
+            se utiliza la nomenclatura use strict para ofrecer mayor rendimiento al
+            navegador
  
         */
         
@@ -35,7 +36,7 @@
         {
             constructor(nombre, apellido, raza)
             {
-                super(raza);  //invoca metodos
+                super(raza);  //invoca atributos del padre
                 this.nombre = nombre;
                 this.apellido = apellido;
             }
@@ -73,6 +74,7 @@
 
             operacion(num1, num2)
             {
+                //invocan los metodos de la clase padre
                 return super.sumar(num1, num2);
             }
        }
