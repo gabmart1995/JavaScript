@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nodos | JavaScript</title>
+</head>
+<body>
+    <div class="close"></div>
+    <form action="" id="form">
+        <span class="close">Cerrar formulario</span>
+        <input type="email" placeholder="correo" name="emails[]">
+    </form>
+    <button id="btn">Agregar más correos</button>
+    <script>
+        
+        /*
+            El DOM representa un arbol dentro de nuestro documento HTML
+            en donde cada uno de los nodos representa un etiqueta dentro 
+            del HTML.
+
+            para agregar nuevos nodos con JavaScript se realiza con la 
+            función createElement(); con el nombre del elemento y 
+            la funcion setAttribute agrega las propiedades a dicho elemento
+        */
+
+        bindClose();
+
+        $("#btn").addEventListener("click", function()
+        {
+            var input = document.createElement("input");
+            input.setAttribute("type", "email");
+            input.setAttribute("placeholder", "correo");
+            input.setAttribute("name", "emails[]");
+
+            //agrega el nodo dentro del arreglo como el ultimo elemento
+            $("#form").appendChild(input);
+
+            myAlert("Se agregó un nuevo elemento");
+        });
+
+        function $(selector)
+        {
+            return document.querySelector(selector);
+        }
+
+        function myAlert(message)
+        {
+            //obtiene un elemento especifico dentro del nodo 
+            //console.log($("body").children[2]);
+
+            //obtiene todos los elementos perteneciente al nodo
+            //console.log($("body").children);
+            var div = document.createElement("div");
+
+            div.setAttribute("class", "alert");
+            div.innerHTML = message;
+
+            var close = document.createElement("span");
+            //agrega estilos CSS
+            close.style.float = "right";
+            close.innerHTML = "X";
+            close.setAttribute("class", "close");
+
+            div.appendChild(close);
+
+            //lo agrega un elemento al principio de la etiqueta
+            $("body").insertBefore(div, $("body").firstChild);
+
+            bindClose();
+        }
+
+        function bindClose()
+        {
+            var elements = document.querySelectorAll(".close");
+
+            for (var i = elements.length - 1; i >= 0; i--)
+            {
+                var el = elements[i];
+                
+                el.addEventListener("click", function()
+                {
+                   this.parentNode.style.display = "none";
+                });
+            }
+        }
+       
+
+    </script>
+</body>
+</html>

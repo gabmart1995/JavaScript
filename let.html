@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Let | JavaScript</title>
+</head>
+<body>
+    <script>
+        
+        /*
+            Let | JavaScript
+
+            es un primo cercano de var en la que permite declarar variables
+            se utiliza para definir el alcance de un bloque y var se declara 
+            para el alcance de una funcion.
+
+            let tambien se uiliza para definir una funcion. Solo esta disponible 
+            dentro de un bloque del codigo 
+        */
+
+        'use strict'
+        function  init()
+        {
+            var nombre = "Gabriel";
+
+            if (true)
+            {
+                let nombre = "Gabriel Martínez";
+
+                //imprime el elemento con let
+                console.log(nombre);
+            }
+            
+            //cambia al valor original
+            console.log(nombre);
+        }
+
+        //ejecuta la funcion sin nesecidad de declarar variables var 
+        init();
+        
+
+    </script>
+</body>
+</html>
