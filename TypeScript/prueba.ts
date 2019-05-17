@@ -98,7 +98,9 @@ function obtenerBooleano(text : string) : boolean
     return bool;
 }
 
-//llama a las funciones
 alert(obtenerNumero(34));
 alert(obtenerString("hola"));
 alert(obtenerBooleano("hola"));
+
+
+

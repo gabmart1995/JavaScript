@@ -9,7 +9,6 @@
     de variables y funciones.
 */
 var Student = /** @class */ (function () {
-    //constructor de la clase
     function Student(firstName, middleInitial, lastName) {
         this.firstName = firstName;
         this.middleInitial = middleInitial;
