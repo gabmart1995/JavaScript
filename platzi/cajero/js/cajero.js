@@ -24,9 +24,9 @@ var boton = document.getElementById( 'extraer' );
 var texto = document.getElementById( 'dinero' );
 var resultado = document.getElementById( 'resultado' );
 
-boton.addEventListener( 'click', entregarDinero );
+boton.addEventListener( 'click', iniciarTransaccion );
 
-function entregarDinero() {
+function iniciarTransaccion() {
 
 	dinero = parseInt( texto.value );
 
@@ -34,22 +34,33 @@ function entregarDinero() {
 
 		if ( dinero > 0 ) {
 
-			div = Math.floor( dinero / b.valor );
-
-			if ( div > b.cantidad ) {
-
-				papeles = b.cantidad;
-			}
-
-			else {
-
-				papeles = div;
-			}
+			calcularOperacion( b );
 
 			entregado.push( new Billete( b.valor , papeles ) );
 			dinero =  dinero - ( b.valor * papeles );
 		}
 	}
+
+	// muestra el mensaje
+	entregarDinero();
+}
+
+function calcularOperacion( billete ) {
+
+	div = Math.floor( dinero / billete.valor );
+
+	if ( div > billete.cantidad ) {
+
+		papeles = billete.cantidad;
+	}
+
+	else {
+
+		papeles = div;
+	}
+}
+
+function entregarDinero() {
 
 	if ( dinero > 0 ) {
 
