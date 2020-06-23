@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Vanilla Redux</title>
+	<link rel="stylesheet" type="text/css" href="./index.css">
 	<script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
 	<script type="module" src="./store.js"></script>
 </head>
@@ -13,12 +14,22 @@
 		manejo del estado. consulta tu consola para que veas los datos
 	</p>
 
-	<table>
-		<thead>
-			<th>Descripción:</th>
-			<th>Completado:</th>
-		</thead>
-		<tbody id="table-body"></tbody>
-	</table>
+	<div class="flex-around">
+		<table>
+			<thead>
+				<th>Descripción:</th>
+				<th>Completado:</th>
+				<th>Acciones</th>
+			</thead>
+			<tbody id="table-body"></tbody>
+		</table>
+		<div>
+			<form name="todo-form">
+				<input type="" name="description">
+				<input type="submit" value="enviar">
+			</form>
+		</div>
+	</div>
+	<script type="module" src="./index.js"></script>
 </body>
 </html>
