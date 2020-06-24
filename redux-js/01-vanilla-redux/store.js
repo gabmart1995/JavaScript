@@ -1,8 +1,16 @@
 import todoApp from './state-todo/reducer.js';
 import * as actions from './state-todo/actions.js';
 
-export var store = Redux.createStore( todoApp );
+export function selectTodos( store ) {
+	return store.todos;
+}
 
+export const store = Redux.createStore( 
+	todoApp, 
+	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+// documentacion 
 // console.log( store.getState() );
 
 // var unsubscribe = store.subscribe( renderTodos ); 

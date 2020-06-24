@@ -1,12 +1,12 @@
 import * as actions from './actions.js';
 
-var initialState = {
+const initialState = {
 	todos: [],
 	visibilityFilter: actions.VisibiltyFilter.SHOW_ALL
 };
 
 // se combinan los reducers
-var todoApp = Redux.combineReducers({
+const todoApp = Redux.combineReducers({
 	todos,
 	visibilityFilter
 });
@@ -20,7 +20,6 @@ function todos( state = initialState.todos, action ) {
 			return [
 				...state,
 				{
-					id: new Date().getTime(),
 					text: action.text,
 					completed: false
 				}
@@ -37,7 +36,10 @@ function todos( state = initialState.todos, action ) {
 				}
 
 				return todo;
-			})
+			});
+
+		case 'REMOVE_TODO':
+			return state.filter( ( todo, index ) => action.index !== index );
 		
 		default: 
 			return state;
@@ -45,7 +47,7 @@ function todos( state = initialState.todos, action ) {
 }
 
 // filter reducer
-function visibilityFilter( state = initialState, action ) {
+function visibilityFilter( state = initialState.visibilityFilter, action ) {
 	
 	switch ( action.type ) {
 

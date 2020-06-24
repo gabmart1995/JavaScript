@@ -1,11 +1,14 @@
-import { store } from './store.js';
+import { store, selectTodos } from './store.js';
 import { addTodo, toggleTodo } from './state-todo/actions.js';
 
 class IndexPage {
 
 	constructor() {
-		this.unsubscribe = store.subscribe( this.render );
+		
 		this.leaveSucription = this.leaveSucription.bind( this );
+		this.render = this.render.bind( this );
+
+		this.unsubscribe = store.subscribe( this.render );
 	}
 
 	addTarea( $event ) {
@@ -21,10 +24,22 @@ class IndexPage {
 		store.dispatch( toggleTodo( index ) )
 	}
 
+	handleChange( tbody ) {
+
+		var buttons = tbody.getElementsByClassName('changeState');
+
+		if ( buttons ) {
+
+			for ( let i = 0; i < buttons.length; i++ ) {
+				buttons[i].addEventListener('click', () => this.toggleTarea( i ));
+			}
+		} 
+	}
+
 	render() {
 
 		var tbody = document.getElementById('table-body');
-		const { todos } = store.getState();
+		var todos = selectTodos( store.getState() );
 
 		tbody.innerHTML = '';
 
@@ -33,16 +48,19 @@ class IndexPage {
 			tbody.innerHTML += `
 				<tr>
 					<td>${ todo.text }</td>
-					<td>${ todo.completed == false ? 'no completado' : 'completado' }</td>
-					<td><button>cambiar</button></td>
+					<td>${ todo.completed === false ? 'no completado' : 'completado' }</td>
+					<td><button class="changeState">cambiar completado</button></td>
+					<td><button>borrar</button></td>
 				</tr>
 			`;
-		});
-	}	
+
+			this.handleChange( tbody );
+		});	
+	}
 }
 
 var form = document.forms['todo-form'];
 var index = new IndexPage();
 
 form.addEventListener( 'submit', index.addTarea );
-document.addEventListener( 'unload', index.leaveSucription );
+window.addEventListener( 'unload', index.leaveSucription );
