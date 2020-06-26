@@ -1,4 +1,4 @@
-import { store, selectTodos } from './store.js';
+import { store, selectTodos, selectFilter } from './store.js';
 import * as actions from './state-todo/actions.js';
 
 class IndexPage {
@@ -50,20 +50,51 @@ class IndexPage {
 
 	setFilter( $event ) {
 		var value = $event.target.value;
-		console.log( store.dispatch( actions.setVisiblityFilter( value ) ) )
+		store.dispatch( actions.setVisiblityFilter( value ) );
 	}
 
 	render() {
 
 		var tbody = document.getElementById('table-body');
 		var todos = selectTodos( store.getState() );
+		var filter = selectFilter( store.getState() );
 
 		tbody.innerHTML = '';
 
-		todos.forEach(( todo ) => {
+		if ( filter === 'SHOW_ACTIVE' ) {
+
+			todos.filter( ( todo ) => !todo.completed ).forEach( ( todo ) => {
+
+				tbody.innerHTML += `
+					<tr style="text-align: center">
+						<td>${ todo.text }</td>
+						<td>${ todo.completed === false ? 'no completado' : 'completado' }</td>
+						<td><button class="change">cambiar completado</button></td>
+						<td><button class="delete">borrar tarea</button></td>
+					</tr>
+				`;
+			});
+
+		} else if ( filter === 'SHOW_COMPLETED' ) {
+
+			todos.filter( ( todo ) => todo.completed ).forEach( ( todo ) => {
+
+				tbody.innerHTML += `
+					<tr style="text-align: center">
+						<td>${ todo.text }</td>
+						<td>${ todo.completed === false ? 'no completado' : 'completado' }</td>
+						<td><button class="change">cambiar completado</button></td>
+						<td><button class="delete">borrar tarea</button></td>
+					</tr>
+				`;
+			});
+
+		} else {
+
+			todos.forEach(( todo ) => {
 
 			tbody.innerHTML += `
-				<tr>
+				<tr style="text-align: center">
 					<td>${ todo.text }</td>
 					<td>${ todo.completed === false ? 'no completado' : 'completado' }</td>
 					<td><button class="change">cambiar completado</button></td>
@@ -71,7 +102,8 @@ class IndexPage {
 				</tr>
 			`;
 
-		});	
+			});		
+		}
 			
 		this.handleChange( tbody );
 	}

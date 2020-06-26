@@ -5,6 +5,10 @@ export function selectTodos( store ) {
 	return store.todos;
 }
 
+export function selectFilter( store ) {
+	return store.visibilityFilter;
+}
+
 export const store = Redux.createStore( 
 	todoApp, 
 	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
