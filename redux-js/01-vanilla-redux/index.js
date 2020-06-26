@@ -1,5 +1,5 @@
 import { store, selectTodos } from './store.js';
-import { addTodo, toggleTodo } from './state-todo/actions.js';
+import * as actions from './state-todo/actions.js';
 
 class IndexPage {
 
@@ -11,8 +11,8 @@ class IndexPage {
 		this.unsubscribe = store.subscribe( this.render );
 	}
 
-	addTarea( $event ) {
-		store.dispatch( addTodo( form.description.value ) );
+	addTodo( $event ) {
+		store.dispatch( actions.addTodo( form.description.value ) );
 		$event.preventDefault();
 	}
 
@@ -20,20 +20,37 @@ class IndexPage {
 		this.unsubscribe();
 	}
 
-	toggleTarea( index ) {
-		store.dispatch( toggleTodo( index ) )
+	toggleTodo( index ) {
+		store.dispatch( actions.toggleTodo( index ) );
+	}
+
+	removeTodo( index ) {
+		store.dispatch( actions.removeTodo( index ) );
 	}
 
 	handleChange( tbody ) {
 
-		var buttons = tbody.getElementsByClassName('changeState');
+		var change = tbody.getElementsByClassName('change');
+		var drop = tbody.getElementsByClassName('delete');
 
-		if ( buttons ) {
+		if ( change ) {
 
-			for ( let i = 0; i < buttons.length; i++ ) {
-				buttons[i].addEventListener('click', () => this.toggleTarea( i ));
+			for ( let i = 0; i < change.length; i++ ) {
+				change[i].addEventListener('click', () => this.toggleTodo( i ));
+			}
+		}
+
+		if ( drop ) {
+
+			for ( let i = 0; i < drop.length; i++ ) {
+				drop[i].addEventListener('click', () => this.removeTodo( i ) )
 			}
 		} 
+	}
+
+	setFilter( $event ) {
+		var value = $event.target.value;
+		console.log( store.dispatch( actions.setVisiblityFilter( value ) ) )
 	}
 
 	render() {
@@ -43,24 +60,27 @@ class IndexPage {
 
 		tbody.innerHTML = '';
 
-		todos.forEach(( todo, index ) => {
+		todos.forEach(( todo ) => {
 
 			tbody.innerHTML += `
 				<tr>
 					<td>${ todo.text }</td>
 					<td>${ todo.completed === false ? 'no completado' : 'completado' }</td>
-					<td><button class="changeState">cambiar completado</button></td>
-					<td><button>borrar</button></td>
+					<td><button class="change">cambiar completado</button></td>
+					<td><button class="delete">borrar tarea</button></td>
 				</tr>
 			`;
 
-			this.handleChange( tbody );
 		});	
+			
+		this.handleChange( tbody );
 	}
 }
 
 var form = document.forms['todo-form'];
+var filter = document.forms['todo-filter'];
 var index = new IndexPage();
 
-form.addEventListener( 'submit', index.addTarea );
+form.addEventListener( 'submit', index.addTodo );
+filter.addEventListener( 'change', index.setFilter )
 window.addEventListener( 'unload', index.leaveSucription );

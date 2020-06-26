@@ -11,7 +11,7 @@
 	<h1>Vanilla JavaScript Redux</h1>
 	<p>
 		Este es un ejemplo con redux, se realiza la gestion de lista de tareas para el 
-		manejo del estado. consulta tu consola para que veas los datos
+		manejo del estado. consulta tu consola observar los cambios del state
 	</p>
 
 	<div class="flex-around">
@@ -26,15 +26,28 @@
 		<div>
 			<form name="todo-form">
 				<input type="" name="description">
-				<input type="submit" value="enviar">
+				<input type="submit" value="añadir tarea">
+			</form>
+
+			<form name="todo-filter" style="text-align: center;">
+				<h4>Filtro de búsqueda</h4>
+				<div>
+					<input id="completed" type="radio" name="filter" value="SHOW_COMPLETED">
+					<label for="completed">tareas completadas</label>
+				</div>
+
+				<div>
+					<input id="active" type="radio" name="filter" value="SHOW_ACTIVE">
+					<label for="active">tareas pendientes</label>
+				</div>
+
+				<div>
+					<input id="all" checked type="radio" name="filter" value="SHOW_ALL">
+					<label for="all">todas</label>
+				</div>
 			</form>
 		</div>
 	</div>
-
-	<p>
-		El objetivo de este ejercicio es refrescar los conocimientos adquiridos en Redux.
-		Procesos de inmutabilidad y cambio de estados.
-	</p>
 
 	<script type="module" src="./index.js"></script>
 </body>

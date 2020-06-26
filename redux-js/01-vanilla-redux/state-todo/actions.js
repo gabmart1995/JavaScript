@@ -1,9 +1,9 @@
-export const ADD_TODO = 'ADD_TODO';
-export const REMOVE_TODO = 'REMOVE_TODO';
-export const SET_VISIVILITY_FILTER = 'SET_VISIVILITY_FILTER';
-export const TOGGLE_TODO = 'TOGGLE_TODO';
+export var ADD_TODO = 'ADD_TODO';
+export var REMOVE_TODO = 'REMOVE_TODO';
+export var SET_VISIVILITY_FILTER = 'SET_VISIVILITY_FILTER';
+export var TOGGLE_TODO = 'TOGGLE_TODO';
 
-export const VisibiltyFilter = {
+export var VisibiltyFilter = {
 	SHOW_COMPLETED: 'SHOW_COMPLETED',
 	SHOW_ALL: 'SHOW_ALL',
 	SHOW_ACTIVE: 'SHOW_ACTIVE'

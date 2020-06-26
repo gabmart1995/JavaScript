@@ -1,12 +1,12 @@
 import * as actions from './actions.js';
 
-const initialState = {
+var initialState = {
 	todos: [],
 	visibilityFilter: actions.VisibiltyFilter.SHOW_ALL
 };
 
 // se combinan los reducers
-const todoApp = Redux.combineReducers({
+var todoApp = Redux.combineReducers({
 	todos,
 	visibilityFilter
 });
