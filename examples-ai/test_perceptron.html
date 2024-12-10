@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Percepton with canvas</title>
+</head>
+<body>
+    <canvas 
+        width="400" 
+        height="400" 
+        id="myCanvas" 
+        style="width:100%; max-width:400px; border:1px solid black"
+    ></canvas>
+    <div id="demo"></div>
+    <script src="ai-libs/perceptron.js"></script>
+    <script src="ai-libs/my-plotter.js"></script>
+    <script>
+        function f(x) {
+            return x * 1.2 + 50
+        }
+
+        const numberPoints = 500;
+        const learingRate = 0.00001;
+
+        const plotter = new XYPlotter('#myCanvas');
+        plotter.transformXY();
+
+        // creamos los puntos aleatorios del mapa
+        const xPoints = [];
+        const yPoints = [];
+
+        for (let i = 0; i < numberPoints; i++) {
+            xPoints[i] = Math.random() * plotter.xMax;
+            yPoints[i] = Math.random() * plotter.yMax;
+        }
+
+        plotter.plotLine(
+            plotter.xMin, 
+            f(plotter.xMin), 
+            plotter.xMax, 
+            f(plotter.xMax), 
+            'black'
+        );
+
+        const desired = [];
+        for (let i = 0; i < numberPoints; i++) desired[i] = (yPoints[i] > f(xPoints[i])) ? 1 : 0;
+
+        // creamos el perceptron
+        const perceptron = new Perceptron(2, learingRate);
+
+        // entrenamiento del percepton
+        // ajusta el sesgo unas 10000 veces segun los resultados
+        for (let j = 0; j <= 10000; j++) {
+            for (let i = 0; i < numberPoints; i++) {
+                perceptron.train([xPoints[i], yPoints[i]], desired[i]);
+            } 
+        }
+
+        // creamos la primera prueba del modelo
+        const counter = 500;
+        let errors = 0; // contador de errores
+
+        for (let i = 0; i < counter; i++) {
+            let x = Math.random() * plotter.xMax;
+            let y = Math.random() * plotter.yMax;
+            let guess = perceptron.activate([x, y, perceptron.bias]);
+            let color = guess === 0 ? 'blue' : 'black';
+
+            plotter.plotPoint(x, y, color);
+
+            let error = (y > f(x) && guess === 0) || (y < f(x) && guess === 1);
+            if (error) errors++;
+        }
+
+        // muestra los errores en pantalla
+        const element = document.querySelector('#demo');
+        if (element) element.innerHTML = (`${errors} Errors out of ${counter}`);
+    </script>
+</body>
+</html>

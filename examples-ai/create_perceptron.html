@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percepton with canvas</title>
+</head>
+<body>
+    <canvas 
+        width="400" 
+        height="400" 
+        id="myCanvas" 
+        style="width:100%; max-width:400px; border:1px solid black"
+    ></canvas>
+    <script src="ai-libs/my-plotter.js"></script>
+    <script>
+        function f(x) {
+            return x * 1.2 + 50
+        }
+
+        const plotter = new XYPlotter('#myCanvas');
+        plotter.transformXY();
+
+        // creamos los puntos aleatorios del mapa
+        const numberPoints = 500;
+        const xPoints = [];
+        const yPoints = [];
+
+        for (let i = 0; i < numberPoints; i++) {
+            xPoints[i] = Math.random() * plotter.xMax;
+            yPoints[i] = Math.random() * plotter.yMax;
+        }
+
+        plotter.plotPoints(numberPoints, xPoints, yPoints, 'blue');
+        plotter.plotLine(
+            plotter.xMin, 
+            f(plotter.xMin), 
+            plotter.xMax, 
+            f(plotter.xMax), 
+            'black'
+        );
+
+        // realizamos el calculo colocamos de otro color los elementos por
+        // encima de la linea
+        const desired = [];
+
+        for (let i = 0; i < numberPoints; i++) {
+            desired[i] = (yPoints[i] > f(xPoints[i])) ? 1 : 0; 
+        }
+
+        for (let i = 0; i < numberPoints; i++) {            
+            let color = desired[i] > 0 ? 'black' : 'blue';
+            plotter.plotPoint(xPoints[i], yPoints[i], color);
+        }
+    </script>
+</body>
+</html>

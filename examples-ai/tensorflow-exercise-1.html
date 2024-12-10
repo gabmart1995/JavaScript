@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tensor flow tutorial</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.6.0/dist/tf.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis"></script> 
+</head>
+<body>
+    <h1>Fetch Tensor flow data</h1>
+    <div id="plot1"></div>
+    <div id="plot2"></div>
+
+    <script>
+        function tfPlot(values, surface) {
+            tfvis.render.scatterplot(
+                surface,
+                { values, series: ['Original', 'Predicted'] },
+                { xLabel: 'Horsepower', yLabel: 'MPG' }
+            );
+        }
+
+        /**
+        * transforma los valores en parametros tensorflow
+        * @param {{x: number, y: number}[]} values
+        */
+        function normalizeValues(values) {
+            // modelamos los datos para tensorflow convertimos la data en tensores
+            const inputs = values.map(car => car.x);
+            const labels = values.map(car => car.y);
+
+            // el segundo parametro es el shape
+            const inputTensor = tf.tensor2d(inputs, [inputs.length, 1]);
+            const labelTensor = tf.tensor2d(labels, [labels.length, 1]);
+
+            // normalizamos la data entre valores 0 y -1
+            const inputMin = inputTensor.min();
+            const inputMax = inputTensor.max();
+            const labelMin = labelTensor.min();
+            const labelMax = labelTensor.max();
+            
+            const nmInputs = inputTensor
+                .sub(inputMin)
+                .div(inputMax.sub(inputMin));
+
+            const nmLabels = labelTensor
+                .sub(labelMin)
+                .div(labelMax.sub(labelMin));
+
+            return {
+                inputMax,
+                inputMin,
+                labelMax,
+                labelMin,
+                nmInputs,
+                nmLabels
+            };
+        }
+
+        async function trainModel(model, inputs, labels, surface) {
+            const batchSize = 25;
+            const epochs = 50; // indica cuantas veces itera el modelo
+
+            // define una funcion a ejecutarse cuando el modelo redibuja las graficas
+            const callbacks = tfvis.show.fitCallbacks(
+                surface,
+                ['loss'],
+                { callbacks: ['onEpochEnd'] }
+            );
+
+            // fit es la funcion que corre las iteraciones
+            return await model.fit(
+                inputs,
+                labels,
+                { batchSize, epochs, shuffle: true, callbacks }
+            );
+        }
+
+        /** extrae la informacion y la prepara al modelo */
+        async function runTF() {
+            try {
+                const response = await fetch('ai-libs/carsData.json');
+                if (!response.ok) throw new Error('No se pudo leer el archivo');
+
+                // filtramos la informacion
+                
+                const jsonData = await response.json();
+                
+                /** @type {{x: number, y: number}[]} */
+                let values = jsonData
+                    .map(car => ({ x: car.Horsepower, y: car.Miles_per_Gallon }))
+                    .filter(car => (car.x !== null && car.y !== null))
+
+                const surface1 = document.querySelector('#plot1');
+                const surface2 = document.querySelector('#plot2');
+
+                tfPlot(values, surface1);
+
+                const {nmInputs, nmLabels, inputMax, inputMin, labelMax, labelMin} = normalizeValues(values);
+                
+                // creamos el modelo secuencial
+                const model = tf.sequential();
+                model.add(tf.layers.dense({ inputShape: [1], units: 1, useBias: true }));
+                model.add(tf.layers.dense({ units: 1, useBias: true }));
+
+                // compilamos el modelo
+                model.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
+
+                // entrenamos el modelo
+                await trainModel(model, nmInputs, nmLabels, surface2);
+
+                // testeamos el modelo para obtener un registro de datos
+                const predicted = testModelData({model, inputMax, inputMin, labelMax, labelMin});
+                tfPlot([values, predicted], surface1);
+
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        /**
+        *  funcion que comprueba el modelo de datos
+        *  @returns {{x: number, y: number}[]}
+        */
+        function testModelData({model, inputMax, inputMin, labelMax, labelMin}) {
+            // antes de testear el modelo debemos desnormalizar la informacion
+            let unX = tf.linspace(0, 1, 100);
+            let unY = model.predict(unX.reshape([100, 1])); // genera una prediccion
+
+            const unNMx = unX
+                .mul(inputMax.sub(inputMin))
+                .add(inputMin);
+
+            const unNMy = unY
+                .mul(labelMax.sub(labelMin))
+                .add(labelMin);
+
+            // obtenemos la data de forma sincronizada
+            unX = unNMx.dataSync(); 
+            unY = unNMy.dataSync();
+
+            // testeamos el modelo y obtenemos las coordenadas
+            const predicted = Array
+                .from(unX)
+                .map((val, i) => ({x: val, y: unY[i]}));
+
+            // console.log(predicted);
+            return predicted;
+        }
+
+        runTF();
+    </script>
+</body>
+</html>

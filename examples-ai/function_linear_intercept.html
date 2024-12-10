@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lineal Function</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Funcion Lineal con Interceptacion</h1>
+    <p>El intercept es el valor de inicio de la grafica.</p>
+    <div id="graphic"></div>
+    <script>
+        /** @type {number[]} */
+        const xValues = [];
+ 
+        /** @type {number[]} */
+        const yValues = [];
+        
+        const slope = 1.2; // angulo de inclinacion
+        const intercept = 7; // valor de inicio de la grafica
+
+        // genera los valores del grafico
+        for (let i = 0; i <= 10; i += 1) {
+            xValues.push(i);
+            yValues.push((i * slope) + intercept);
+        } 
+        
+        // definimos el modelo
+        const data = [{x: xValues, y: yValues, mode: 'lines'}];
+        const layout = {title: 'y = (a * x) + b'};
+
+        // generamos el grafico
+        Plotly.newPlot('graphic', data, layout);
+    </script>
+</body>
+</html>

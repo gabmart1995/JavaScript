@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Percepton with canvas</title>
+</head>
+<body>
+    <canvas 
+        width="400" 
+        height="400" 
+        id="myCanvas" 
+        style="width:100%; max-width:400px; border:1px solid black"
+    ></canvas>
+    <script src="ai-libs/perceptron.js"></script>
+    <script src="ai-libs/my-plotter.js"></script>
+    <script>
+        function f(x) {
+            return x * 1.2 + 50
+        }
+
+        const numberPoints = 500;
+        const learingRate = 0.00001;
+
+        const plotter = new XYPlotter('#myCanvas');
+        plotter.transformXY();
+
+        // creamos los puntos aleatorios del mapa
+        const xPoints = [];
+        const yPoints = [];
+
+        for (let i = 0; i < numberPoints; i++) {
+            xPoints[i] = Math.random() * plotter.xMax;
+            yPoints[i] = Math.random() * plotter.yMax;
+        }
+
+        plotter.plotLine(
+            plotter.xMin, 
+            f(plotter.xMin), 
+            plotter.xMax, 
+            f(plotter.xMax), 
+            'black'
+        );
+
+        const desired = [];
+        for (let i = 0; i < numberPoints; i++) desired[i] = (yPoints[i] > f(xPoints[i])) ? 1 : 0;
+
+        // creamos el perceptron
+        const perceptron = new Perceptron(2, learingRate);
+
+        // entrenamiento del percepton
+        // ajusta el sesgo unas 10000 veces segun los resultados
+        for (let j = 0; j <= 10000; j++) {
+            for (let i = 0; i < numberPoints; i++) {
+                perceptron.train([xPoints[i], yPoints[i]], desired[i]);
+            } 
+        }
+
+        // muestra el resultado
+        for (let i = 0; i < numberPoints; i++) {
+            const x = xPoints[i];
+            const y = yPoints[i];
+
+            let guess = perceptron.activate([x, y, perceptron.bias]);
+            let color = guess === 0 ? 'blue' : 'black';
+
+            plotter.plotPoint(x, y, color);
+        }
+    </script>
+</body>
+</html>

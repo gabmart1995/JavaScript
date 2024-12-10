@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8" />
+    <title>Tutorial Brain.js</title>
+    <script src="https://unpkg.com/brain.js"></script>
+<style>
+    div {padding:10px;font-size:20px;border:1px solid black}
+</style>
+<body>
+
+    <h2>Colors can be set by RGB</h2>
+
+    <div style="background-color:RGB(0,0,0)">
+    <p style="color:white">RGB(0,0,0)</p>
+    </div>
+
+    <div style="background-color:RGB(255,255,0)">
+    <p style="color:black">RGB(255,255,0)</p>
+    </div>
+
+    <div style="background-color:RGB(255,0,0)">
+    <p style="color:white">RGB(255,0,0)</p>
+    </div>
+    <div style="background-color:RGB(255,255,255)">
+    <p style="color:black">RGB(255,255,255)</p>
+    </div>
+
+    <div style="background-color:RGB(192,192,192)">
+    <p style="color:black">RGB(192,192,192)</p>
+    </div>
+
+    <div style="background-color:RGB(65,65,65)">
+    <p style="color:white">RGB(65,65,65)</p>
+    </div>
+
+    <div id="demo"></div>
+    <script>
+        const net = new brain.NeuralNetwork();
+        const data = [
+            {input: [255/255, 255/255, 225/255], output: {light: 1}}, // white rgb
+            {input: [192/255, 192/255, 192/255], output: {light: 1}}, // lightgray rgb
+            {input: [65/255, 65/255, 65/255], output: {dark: 1}}, // darkgrey rgb
+            {input: [0, 0, 0], output: {dark: 1}}, // black rgb
+        ];
+
+        // entrenamos el modelo
+        net.train(data);
+
+        // cual es la salida esperada de el color dark blue (0, 0, 128)
+        let result = net.run([0, 0, 128/255]);
+        
+        document.querySelector('#demo').innerHTML = (`
+            Dark: ${result.dark}<br/>
+            Light: ${result.light}<br /> 
+        `);
+    </script>
+</body>
+</html>

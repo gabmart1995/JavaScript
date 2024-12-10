@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lineal Function</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Funcion Lineal con Pendiente</h1>
+    <p>La pendiente es el angulo del grafico.</p>
+    <div id="graphic"></div>
+    <script>
+        /** @type {number[]} */
+        const xValues = [];
+ 
+        /** @type {number[]} */
+        const yValues = [];
+        const slope = 1.2;
+        
+        // genera los valores del grafico
+        for (let i = 0; i <= 10; i += 1) {
+            xValues.push(i);
+            yValues.push(i * slope);
+        } 
+        
+        // definimos el modelo
+        const data = [{x: xValues, y: yValues, mode: 'lines'}];
+        const layout = {title: 'y = a * x'};
+
+        // generamos el grafico
+        Plotly.newPlot('graphic', data, layout);
+    </script>
+</body>
+</html>
