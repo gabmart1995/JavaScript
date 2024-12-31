@@ -77,3 +77,48 @@ p, h1, h2, h3, h4, h5, h6 {
 #performance {
     width: 1066px !important;
 }
+
+.accordion h2 button {
+    font-size: 0.8rem;
+    background: var(--background);
+    color: var(--text-color);
+}
+
+.accordion .accordion-item {
+    border: none;
+}
+
+.accordion h2 button:hover {
+    background: var(--background-card);
+}
+
+.accordion h2 button:focus {
+    box-shadow: none;
+}
+
+.accordion h2 button:not(.collapsed) {
+    background: var(--background-card);
+    color: white;
+    box-shadow: none; /* retira la sombra en la parte inferior */
+}
+
+.accordion .accordion-body {
+    background: var(--background-card);
+    color: var(--text-content);
+    font-size: 0.8rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.accordion .list {
+    list-style: none;
+}
+
+.accordion .list li {
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.accordion .list li:hover {
+    color: var(--text-color);
+}
