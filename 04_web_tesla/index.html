@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla - El coche de tus sueños (y de Elon)</title>
+    <link rel="stylesheet" href="assets/fonts.css" />
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/tailwind_3.4.15.js"></script>
+    <script type="module" src="assets/index.js"></script>
+</head>
+<body>
+    <tesla-landing-header></tesla-landing-header>
+    <main class="snap-y snap-mandatory relative w-full h-screen overflow-auto">
+        <div class="snap-center">
+            <tesla-hero
+                color="white"
+                title="Disfrute de Tesla"
+                subtitle="Programe una prueba de conducción hoy mismo"
+            ></tesla-hero> 
+        </div>
+        <div class="snap-center">
+            <tesla-charge-section
+                color="black"
+                title="Model S"
+                subtitle="Programe una prueba de conducción hoy mismo"
+                image-src="assets/img/model-s.avif"
+            ></tesla-charge-section> 
+        </div>
+        <div class="snap-center">
+            <tesla-charge-section
+                color="black"
+                title="Model 3"
+                subtitle="Programe una prueba de conducción hoy mismo"
+                image-src="assets/img/model-3.avif"
+            ></tesla-charge-section> 
+        </div>
+        <div class="snap-center">
+            <tesla-charge-section
+                color="black"
+                title="Model X"
+                subtitle="Programe una prueba de conducción hoy mismo" 
+                image-src="assets/img/model-x.avif"
+            ></tesla-charge-section> 
+        </div>
+        <div class="snap-center">
+            <tesla-charge-section
+                color="black"
+                title="Model Y"
+                subtitle="Programe una prueba de conducción hoy mismo" 
+                image-src="assets/img/model-y.avif" 
+            >
+            </tesla-charge-section> 
+        </div>
+        <div class="snap-center">
+            <tesla-charge-section
+                title="Solar y Powerwall"
+                color="black"
+                subtitle="Energía para todos"
+                image-src="assets/img/powerwall.avif"
+            ></tesla-charge-section>
+        </div>
+        <div class="snap-center">
+            <tesla-charge-section
+                title="Accesorios"
+                color="black"
+                subtitle=""
+                image-src="assets/img/accessories.avif"
+            ></tesla-charge-section>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,14 @@
+
+/** create-app-cli */
+:root {
+}
+
+body {
+    background: #3d3d3d;
+}	
+
+.style-posts {
+    height: 70vh;
+    overflow: auto;
+}
+	
