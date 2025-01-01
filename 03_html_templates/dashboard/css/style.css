@@ -136,3 +136,13 @@ p, h1, h2, h3, h4, h5, h6 {
 .accordion .list li:hover {
     color: var(--text-color);
 }
+
+/** dashboard icon */
+.text-secondary path:nth-child(2) {
+    color: #f9bc06;
+}
+
+.text-secondary path:nth-child(1),
+.text-secondary path:nth-child(3) {
+    color: #644b02;
+}
