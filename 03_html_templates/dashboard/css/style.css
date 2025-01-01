@@ -146,3 +146,62 @@ p, h1, h2, h3, h4, h5, h6 {
 .text-secondary path:nth-child(3) {
     color: #644b02;
 }
+
+.input-group {
+	--bs-input-group-bg: var(--background-card);
+	--bs-input-group-border-width: 1px;
+	--bs-input-group-border-color: transparent;
+	--bs-input-group-border-radius: 0.5rem;
+	--bs-input-group-box-shadow: 0 0 transparent;
+	--bs-input-group-focus-border-bg: #17191c;
+	--bs-input-group-focus-border-color: var(--bs-primary);
+	--bs-input-group-focus-box-shadow: 0 0 0 0.25rem rgba(0,85,255,.15);
+	background-color: var(--bs-input-group-bg);
+	border: var(--bs-input-group-border-width) solid var(--bs-input-group-border-color);
+	border-radius: var(--bs-input-group-border-radius);
+	box-shadow: var(--bs-input-group-box-shadow);
+	transition: all .3s ease-in-out;
+}
+
+/* sobrescribe los estilos al enfocar el input */
+.input-group:focus-within {
+    background-color: var(--background);
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.25rem rgba(0, 85, 255, 0.15);
+}
+
+/* limpiamos los estilos por defecto de los elementos del formulario */
+.input-group > * {
+    background: transparent !important;
+    border-width: 0 !important;
+    box-shadow: none !important;
+}
+
+.input-group .form-control {
+    color: var(--text-color);
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    padding: 0.75rem 1rem;
+    line-height: 1.5;
+    font-weight: 500;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,background-color .15s ease-in-out;
+}
+
+/* color placeholders */
+.input-group .form-control::placeholder {
+    color: var(--text-content);
+    opacity: 0.5; /* Firefox */
+}
+  
+.input-group .form-control::-ms-input-placeholder { /* Edge 12-18 */
+    color: var(--text-content);
+}
+
+.input-group kbd {
+    background-color: rgba(57,62,70);
+}
+
+.search-input {
+    max-width: 400px;
+}

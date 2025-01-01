@@ -163,6 +163,7 @@
         </div>
         <!-- end accordion menu -->
 
+        <!-- help section -->
         <div class="card mt-4 mb-4" style="background-color: var(--background) !important">
             <div class="card-body p-4">
                 <h5>Need help??</h5>
@@ -172,16 +173,28 @@
             </div>
         </div>
         
+        <!-- search form -->
+         <div class="d-flex justify-content-between">
+            <div class="input-group search-input">
+                <input placeholder="Search" type="search" class="form-control" name="search" />
+                <span class="input-group-text">
+                    <kbd class="badge text-white">⌘</kbd>
+                    <kbd class="badge text-white ms-1">K</kbd>
+                </span>
+            </div>
+         </div>
+        <!-- end form -->
+
         <div class="mt-5 d-flex flex-md-row flex-column justify-content-md-between align-items-md-center">
             <hgroup class="text-center text-md-start">
-                <h2>Hello, John</h2>
+                <h2 class="fw-bold">Hello, John</h2>
                 <p class="p-gray">Here's a summary of your account activity for this week.</p>
             </hgroup>
             <p class="d-flex align-items-center justify-content-center">
                 <span class="avatar me-md-4 me-3" style="--bs-avatar-bg: var(--background-card);">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fs-4 duo-icon duo-icon-world" data-duoicon="world"><path fill="currentColor" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2Z" class="duoicon-secondary-layer" opacity=".3"></path><path fill="currentColor" d="M12 4a7.988 7.988 0 0 0-6.335 3.114l-.165.221V9.02c0 1.25.775 2.369 1.945 2.809l.178.06 1.29.395c1.373.42 2.71-.697 2.577-2.096l-.019-.145-.175-1.049a1 1 0 0 1 .656-1.108l.108-.03.612-.14a2.667 2.667 0 0 0 1.989-3.263A7.987 7.987 0 0 0 12 4Zm2 9.4-1.564 1.251a.5.5 0 0 0-.041.744l1.239 1.239c.24.24.415.538.508.864l.175.613c.147.521.52.948 1.017 1.163a8.026 8.026 0 0 0 2.533-1.835l-.234-1.877a2 2 0 0 0-1.09-1.54l-1.47-.736A1 1 0 0 0 14 13.4Z" class="duoicon-primary-layer"></path></svg>
                 </span>
-                San Francisco, CA - 8:00 PM
+                San Francisco, CA - <span class="ms-1" id="date"></span>
             </p>
         </div>
         <div class="border mt-4 mb-5"></div>

@@ -1,4 +1,6 @@
 const canvas = document.getElementById('performance');
+const date = document.getElementById('date');
+
 
 if (canvas) {
     new Chart(canvas, {
@@ -42,4 +44,16 @@ if (canvas) {
             }
         }
     });
+}
+
+if (date) {
+    const dateTime = new Date();
+    let result = '';
+    let prefix = 'AM';
+    let hour = dateTime.getHours();
+
+    if (hour >= 12 && hour <= 23) prefix = 'PM';
+
+    result = `${hour}:${dateTime.getMinutes()} ${prefix}`;
+    date.innerText = result;
 }
