@@ -10,15 +10,15 @@ if (canvas) {
                     label: 'Total',
                     data: [6.5, 5.2, 7.8, 6.5, 5.2, 7.8, 6.5],
                     backgroundColor: '#0d6efd',
-                    borderRadius: 9999,
-                    borderWidth: 10
+                    // borderRadius: 9999,
+                    // borderWidth: 10
                 },
                 {
                     label: 'Tracked',
                     data: [5.5, 5.1, 5.9, 5.5, 5.2, 5.9, 5.5],
                     backgroundColor: '#6c757d',
-                    borderRadius: 9999,
-                    borderWidth: 10
+                    // borderRadius: 9999,
+                    // borderWidth: 10
                 }
             ],
         },
@@ -26,7 +26,13 @@ if (canvas) {
             responsive: true,
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        // obtiene los valores calculados en la coord. y 
+                        callback: function(label) {
+                            return (`${label}hrs`);
+                        }
+                    }
                 }
             },
             plugins: {

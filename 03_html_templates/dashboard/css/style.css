@@ -38,7 +38,7 @@ p, h1, h2, h3, h4, h5, h6 {
     align-items: center;
     background-color: var(--bs-avatar-bg);
     border-radius: var(--bs-avatar-border-radius);
-    color: var(--bs-avatar-color);
+    color: var(--bs-primary);
     display: inline-flex;
     font-size: var(--bs-avatar-font-size);
     height: var(--bs-avatar-size);
@@ -76,9 +76,15 @@ p, h1, h2, h3, h4, h5, h6 {
     justify-content: center;
 }
 
-#performance {
-    width: 1066px !important;
+@media screen and (max-width: 768px) {
+    .chart {
+        height: auto;
+    }
 }
+
+/*#performance {
+    width: 1066px !important;
+}*/
 
 .accordion h2 button {
     font-size: 0.8rem;
