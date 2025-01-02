@@ -5,6 +5,10 @@
     --text-content: #bbb;
 }
 
+.text-muted {
+    color: var(--text-content) !important;
+}
+
 body {
     background: var(--background);
 }
@@ -245,4 +249,32 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .user-dropdown .dropdown-divider {
     border-top: 1px solid #5b5b5b;
+}
+
+.browse-button {
+    color: var(--text-color);
+    font-weight: bold;
+    padding: 0.5rem 0.75rem; 
+}
+
+.browse-button:hover {
+    color: var(--text-color);
+    background-color: #3E3D3D;
+}
+
+.table thead th {
+    background: transparent;
+    color: var(--text-content);
+    font-weight: 350;
+    padding: 12px 6px;
+}
+
+.table tbody td {
+    background: transparent;
+    vertical-align: middle;
+    padding: 14px 7px;
+}
+
+.table tbody td:first-child > * {
+    margin: 0;
 }

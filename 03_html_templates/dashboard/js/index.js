@@ -32,7 +32,7 @@ if (canvas) {
                     ticks: {
                         // obtiene los valores calculados en la coord. y 
                         callback: function(label) {
-                            return (`${label}hrs`);
+                            return (`${label} hrs`);
                         }
                     }
                 }
