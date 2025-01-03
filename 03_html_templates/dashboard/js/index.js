@@ -51,9 +51,10 @@ if (date) {
     let result = '';
     let prefix = 'AM';
     let hour = dateTime.getHours();
+    let minutes = dateTime.getMinutes();
 
     if (hour >= 12 && hour <= 23) prefix = 'PM';
 
-    result = `${hour}:${dateTime.getMinutes()} ${prefix}`;
+    result = `${hour}:${minutes < 10 ? ('0' + minutes) : minutes} ${prefix}`;
     date.innerText = result;
 }
