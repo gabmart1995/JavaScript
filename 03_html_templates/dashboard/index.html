@@ -11,157 +11,263 @@
 </head>
 <body>
     <main class="container">
-        <!-- acordion menu -->
-         <div class="d-flex mt-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fs-4 text-secondary me-1 duo-icon duo-icon-box-2" data-duoicon="box-2"><path fill="currentColor" d="m20.765 7.982.022.19.007.194v7.268a2.5 2.5 0 0 1-1.099 2.07l-.15.095-6.295 3.634-.124.067-.126.06v-8.99l7.765-4.588Z" class="duoicon-secondary-layer" opacity=".3"></path><path fill="currentColor" d="m13.25 2.567 6.294 3.634c.05.03.1.06.148.092L12 10.838 4.308 6.293a2.81 2.81 0 0 1 .148-.092l6.294-3.634a2.498 2.498 0 0 1 2.5 0Z" class="duoicon-primary-layer"></path><path fill="currentColor" d="M3.235 7.982 11 12.571v8.988a2.339 2.339 0 0 1-.25-.126l-6.294-3.634a2.502 2.502 0 0 1-1.25-2.165V8.366c0-.13.01-.258.03-.384h-.001Z" class="duoicon-secondary-layer" opacity=".3"></path></svg>
-            <h6 class="fw-bold ms-2">Dashboard</h6>
-         </div>
-        <div class="accordion accordion-flush mt-2" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button 
-                        class="accordion-button collapsed" 
-                        type="button" 
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne"
-                        aria-expanded="false"
-                        aria-controls="collapseOne"
-                    >
-                        <img src="svg_img/space_dashboard.svg" class="me-2" alt="space_dashboard" />
-                        Dashboards
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <ul class="m-0 p-0 list">
-                            <li>Default</li>
-                            <li>Crypto</li>
-                            <li>Sass</li>
-                        </ul>
+        <!-- acordion menu mobile mode -->
+        <div class="d-block d-md-none">
+            <div class="d-flex mt-4">
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fs-4 text-secondary me-1 duo-icon duo-icon-box-2" data-duoicon="box-2"><path fill="currentColor" d="m20.765 7.982.022.19.007.194v7.268a2.5 2.5 0 0 1-1.099 2.07l-.15.095-6.295 3.634-.124.067-.126.06v-8.99l7.765-4.588Z" class="duoicon-secondary-layer" opacity=".3"></path><path fill="currentColor" d="m13.25 2.567 6.294 3.634c.05.03.1.06.148.092L12 10.838 4.308 6.293a2.81 2.81 0 0 1 .148-.092l6.294-3.634a2.498 2.498 0 0 1 2.5 0Z" class="duoicon-primary-layer"></path><path fill="currentColor" d="M3.235 7.982 11 12.571v8.988a2.339 2.339 0 0 1-.25-.126l-6.294-3.634a2.502 2.502 0 0 1-1.25-2.165V8.366c0-.13.01-.258.03-.384h-.001Z" class="duoicon-secondary-layer" opacity=".3"></path></svg>
+               <h6 class="fw-bold ms-2">Dashboard</h6>
+            </div>
+            <div class="accordion accordion-flush mt-2" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button 
+                            class="accordion-button collapsed" 
+                            type="button" 
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne"
+                            aria-expanded="false"
+                            aria-controls="collapseOne"
+                        >
+                            <img src="svg_img/space_dashboard.svg" class="me-2" alt="space_dashboard" />
+                            Dashboards
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="m-0 p-0 list">
+                                <li>Default</li>
+                                <li>Crypto</li>
+                                <li>Sass</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button 
-                        class="accordion-button collapsed" 
-                        type="button" 
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo"
-                        aria-expanded="false"
-                        aria-controls="collapseTwo"
-                    >
-                        <img src="svg_img/group.svg" class="me-2" alt="group" />
-                        Customers
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <ul class="m-0 p-0 list">
-                            <li>Customers</li>
-                            <li>Customer detail</li>
-                            <li>New Customer</li>
-                        </ul>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button 
+                            class="accordion-button collapsed" 
+                            type="button" 
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo"
+                            aria-expanded="false"
+                            aria-controls="collapseTwo"
+                        >
+                            <img src="svg_img/group.svg" class="me-2" alt="group" />
+                            Customers
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="m-0 p-0 list">
+                                <li>Customers</li>
+                                <li>Customer detail</li>
+                                <li>New Customer</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button 
-                        class="accordion-button collapsed" 
-                        type="button" 
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree"
-                        aria-expanded="false"
-                        aria-controls="collapseThree"
-                    >
-                        <img src="svg_img/lists.svg" class="me-2" alt="lists" />
-                        Projects
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <ul class="m-0 p-0 list">
-                            <li>Proyects</li>
-                            <li>Proyect overview</li>
-                            <li>New Proyect</li>
-                        </ul>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button 
+                            class="accordion-button collapsed" 
+                            type="button" 
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree"
+                            aria-expanded="false"
+                            aria-controls="collapseThree"
+                        >
+                            <img src="svg_img/lists.svg" class="me-2" alt="lists" />
+                            Projects
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="m-0 p-0 list">
+                                <li>Proyects</li>
+                                <li>Proyect overview</li>
+                                <li>New Proyect</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button 
-                        class="accordion-button collapsed" 
-                        type="button" 
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseFour"
-                        aria-expanded="false"
-                        aria-controls="collapseFour"
-                    >
-                        <img src="svg_img/person.svg" class="me-2" alt="lists" />
-                        Account
-                    </button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <ul class="m-0 p-0 list">
-                            <li>Account overview</li>
-                            <li>Account seetings</li>
-                        </ul>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button 
+                            class="accordion-button collapsed" 
+                            type="button" 
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseFour"
+                            aria-expanded="false"
+                            aria-controls="collapseFour"
+                        >
+                            <img src="svg_img/person.svg" class="me-2" alt="lists" />
+                            Account
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="m-0 p-0 list">
+                                <li>Account overview</li>
+                                <li>Account seetings</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button 
-                        class="accordion-button collapsed" 
-                        type="button" 
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseFive"
-                        aria-expanded="false"
-                        aria-controls="collapseFive"
-                    >
-                        <img src="svg_img/shopping_cart.svg" class="me-2" alt="shopping_cart" />
-                        Orders
-                    </button>
-                </h2>
-                <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <ul class="m-0 p-0 list">
-                            <li>Orders</li>
-                            <li>Invoice</li>
-                            <li>Pricing</li>
-                        </ul>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button 
+                            class="accordion-button collapsed" 
+                            type="button" 
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseFive"
+                            aria-expanded="false"
+                            aria-controls="collapseFive"
+                        >
+                            <img src="svg_img/shopping_cart.svg" class="me-2" alt="shopping_cart" />
+                            Orders
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="m-0 p-0 list">
+                                <li>Orders</li>
+                                <li>Invoice</li>
+                                <li>Pricing</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button 
-                        class="accordion-button collapsed" 
-                        type="button" 
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseSix"
-                        aria-expanded="false"
-                        aria-controls="collapseSix"
-                    >
-                        <img src="svg_img/text_fields.svg" class="me-2" alt="shopping_cart" />
-                        Posts
-                    </button>
-                </h2>
-                <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <ul class="m-0 p-0 list">
-                            <li>Categories</li>
-                            <li>Posts</li>
-                            <li>New post</li>
-                        </ul>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button 
+                            class="accordion-button collapsed" 
+                            type="button" 
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseSix"
+                            aria-expanded="false"
+                            aria-controls="collapseSix"
+                        >
+                            <img src="svg_img/text_fields.svg" class="me-2" alt="shopping_cart" />
+                            Posts
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="m-0 p-0 list">
+                                <li>Categories</li>
+                                <li>Posts</li>
+                                <li>New post</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- end accordion menu -->
+        <!-- main menu -->
+        <nav class="navbar d-none d-md-block main-menu">
+            <div class="row">
+                <div class="col-2 align-self-center">
+                    <a href="index.html" class="navbar-brand fs-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fs-4 text-secondary me-1 duo-icon duo-icon-box-2" data-duoicon="box-2"><path fill="currentColor" d="m20.765 7.982.022.19.007.194v7.268a2.5 2.5 0 0 1-1.099 2.07l-.15.095-6.295 3.634-.124.067-.126.06v-8.99l7.765-4.588Z" class="duoicon-secondary-layer" opacity=".3"></path><path fill="currentColor" d="m13.25 2.567 6.294 3.634c.05.03.1.06.148.092L12 10.838 4.308 6.293a2.81 2.81 0 0 1 .148-.092l6.294-3.634a2.498 2.498 0 0 1 2.5 0Z" class="duoicon-primary-layer"></path><path fill="currentColor" d="M3.235 7.982 11 12.571v8.988a2.339 2.339 0 0 1-.25-.126l-6.294-3.634a2.502 2.502 0 0 1-1.25-2.165V8.366c0-.13.01-.258.03-.384h-.001Z" class="duoicon-secondary-layer" opacity=".3"></path></svg>
+                        <h6 class="fw-bold ms-2 d-inline">Dashboard</h6>
+                    </a>
+                </div>
+                <div class="col-8 align-self-center">
+                    <div class="navbar-nav nav-pills d-flex flex-row justify-content-center">
+                        <div class="nav-item dropdown">
+                            <a 
+                                href="#" 
+                                class="nav-link dropdown-toggle" 
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >Dashboard</a>
+                            <ul class="dropdown-menu position-absolute">
+                                <li><a href="index.html" class="dropdown-item">Default</a></li>
+                                <li><a href="index.html" class="dropdown-item">Crypto</a></li>
+                                <li><a href="index.html" class="dropdown-item">Sass</a></li>
+                            </li>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a 
+                                href="#" 
+                                class="nav-link dropdown-toggle" 
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >Customers</a>
+                            <ul class="dropdown-menu position-absolute">
+                                <li><a href="index.html" class="dropdown-item">Customers</a></li>
+                                <li><a href="index.html" class="dropdown-item">Customers details</a></li>
+                                <li><a href="index.html" class="dropdown-item">New customer</a></li>
+                            </li>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a 
+                                href="#" 
+                                class="nav-link dropdown-toggle" 
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >Proyects</a>
+                            <ul class="dropdown-menu position-absolute">
+                                <li><a href="index.html" class="dropdown-item">Proyects</a></li>
+                                <li><a href="index.html" class="dropdown-item">Proyect Overview</a></li>
+                                <li><a href="index.html" class="dropdown-item">New Proyect</a></li>
+                            </li>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a 
+                                href="#" 
+                                class="nav-link dropdown-toggle" 
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >Account</a>
+                            <ul class="dropdown-menu position-absolute">
+                                <li><a href="index.html" class="dropdown-item">Account overview</a></li>
+                                <li><a href="index.html" class="dropdown-item">Account seetings</a></li>
+                            </li>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a 
+                                href="#" 
+                                class="nav-link dropdown-toggle" 
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >Orders</a>
+                            <ul class="dropdown-menu position-absolute">
+                                <li><a href="index.html" class="dropdown-item">Orders</a></li>
+                                <li><a href="index.html" class="dropdown-item">Invoice</a></li>
+                                <li><a href="index.html" class="dropdown-item">Pricing</a></li>
+                            </li>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a 
+                                href="#" 
+                                class="nav-link dropdown-toggle" 
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >Posts</a>
+                            <ul class="dropdown-menu position-absolute">
+                                <li><a href="index.html" class="dropdown-item">Categories</a></li>
+                                <li><a href="index.html" class="dropdown-item">Posts</a></li>
+                                <li><a href="index.html" class="dropdown-item">New post</a></li>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 align-self-center text-end">
+                    <img src="svg_img/settings.svg" alt="seetings icon" class="me-2" />
+                    <img src="svg_img/shopping_bag.svg" alt="shopping bar icon" class="me-2" />
+                    <img src="svg_img/alternate_email.svg" alt="alternative email" />
+                </div>
+            </div>
+        </nav>
+        <!--end  main menu -->
 
         <!-- help section -->
         <div class="card mt-4 mb-4" style="background-color: var(--background) !important">

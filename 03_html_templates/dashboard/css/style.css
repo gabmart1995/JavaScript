@@ -328,3 +328,22 @@ p, h1, h2, h3, h4, h5, h6 {
     border-radius: var(--bs-border-radius-pill);
     width: var(--bs-progress-height);
 }
+
+
+.main-menu .nav-item a {
+    padding: 12px 16px;
+    color: var(--text-content);
+}
+
+.main-menu .nav-item a:hover {
+    background-color: var(--background-card);
+    border-radius: 5px;
+}
+
+.main-menu .dropdown-menu {
+    background-color: var(--background);
+}
+
+.main-menu .nav-link.show {
+    color: var(--text-color);
+}
