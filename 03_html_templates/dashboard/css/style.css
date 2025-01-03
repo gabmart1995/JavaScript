@@ -238,7 +238,8 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 .user-dropdown .dropdown-item:hover,
-.user-dropdown .dropdown-item:focus {
+.user-dropdown .dropdown-item:focus,
+.main-menu .dropdown-item:focus {
     background-color: var(--background-card);
     border-radius: 5px;
 }
