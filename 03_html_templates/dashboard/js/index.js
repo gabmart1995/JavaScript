@@ -1,7 +1,6 @@
 const canvas = document.getElementById('performance');
 const date = document.getElementById('date');
 
-
 if (canvas) {
     new Chart(canvas, {
         type: 'bar',

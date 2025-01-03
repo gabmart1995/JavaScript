@@ -347,3 +347,42 @@ p, h1, h2, h3, h4, h5, h6 {
 .main-menu .nav-link.show {
     color: var(--text-color);
 }
+
+.login {
+    width: 30%;
+}
+
+.login .form-control {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-clip: padding-box;
+	background-color: var(--background-card);
+	border: var(--bs-border-width) solid transparent;
+	border-radius: var(--bs-border-radius);
+	box-shadow: 0 0 transparent;
+	color: var(--text-color);
+	display: block;
+	font-size: .875rem;
+	font-weight: 380;
+	line-height: 1.5;
+	padding: .75rem 1rem;
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,background-color .15s ease-in-out;
+	width: 100%;
+}
+
+/* color placeholders */
+.login .form-control::placeholder {
+    color: var(--text-content);
+    opacity: 0.5; /* Firefox */
+}
+  
+.login .form-control::-ms-input-placeholder { /* Edge 12-18 */
+    color: var(--text-content);
+}
+
+@media screen and (max-width: 768px) {
+    .login {
+        width: 90%;
+    }
+}
