@@ -10,5 +10,9 @@
   "scripts": {
     "build-linux": "./make_linux.sh",
     "build-windows": "./make_windows.sh"
+  },
+  "engines": {
+    "node": "22.14.0"
+    "npm": "10.9.2"
   }
 }
