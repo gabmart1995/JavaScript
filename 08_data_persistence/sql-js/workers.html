@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workers</title>
+</head>
+<body>
+    <h2>SQL WASM para workers</h2>
+    <p>
+        Los workers realizan los procesos de consulta a segundo plano 
+        para que no interfieran con el hijo principal
+    
+        Esta forma se utiliza cuando existen consultas intensivas que 
+        afectan al hilo principal y hacen que la app se quede colgado.
+    </p>
+    <script>
+        (function () {
+            // este proceso cargara la gestion de la BD en un hilo especialziado
+            const worker = new Worker('./sqlite/worker.sql-wasm.js');
+
+            worker.onmessage = function () {
+                console.log('LOG: Database ready and opened');
+                
+                // sobreescribimos la funcion on message para obtener los resultados
+                worker.onmessage = function (event) {
+                    console.log('LOG: ', event.data);
+                }
+
+                worker.postMessage({
+                    id: 2,
+                    action: "exec",
+                    sql: "SELECT age,name FROM test WHERE id=$id",
+                    params: { "$id": 1 }
+                });
+            };
+
+            worker.onerror = error => console.error(error);
+
+            // abrimos la base de datos
+            worker.postMessage({
+                id: 1,
+                action: 'open',
+                // buffer: bytes // en caso se cargar un archivo usar esta propiedad 
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic</title>
+</head>
+<body>
+    <h2>Uso basico de SQL.js Wasm</h2>
+    <p>Output is in Javascript console</p>
+    <button id="export" disabled>Exportar database</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.13.0/sql-wasm.js" integrity="sha512-Yra4xuTWinXfBpG2ftgDX8MVmMiOev1FtqiYs51+kEna/5peD0kZqAL1syYCH61f9gxmAFidIJz42IKcRhWMkw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        /**
+         * Script que controla la conexion con sql.js
+        */
+        (async function () {
+            // carga la libreria en el entorno global
+            const { initSqlJs } = window;
+            const button = document.querySelector('#export')
+
+            let db;
+
+            /** exporta el archivo del usuario */
+            async function exportFile() {
+                try {
+                    const bytes = db.export();
+                    const blob = new Blob([bytes], {type: 'application/x-sqlite3'})
+    
+                    const url = URL.createObjectURL(blob);
+    
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'test.sqlite';
+    
+                    link.click();
+    
+                    URL.revokeObjectURL(url);
+    
+                } catch (error) {
+                    console.error(error);
+                }
+            };
+
+            // capturamos el evento del boton
+            button.addEventListener('click', exportFile);
+
+            try {
+                // localizamos el archivo wasm, en la propiedad 
+                // locateFile usa el parametro si necesitas la url local
+                const SQL = await initSqlJs({
+                    locateFile: localFileName => 'https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.13.0/sql-wasm.wasm',
+                });
+
+                /**
+                 * Esta forma tarda en cargar los recursos
+                 * se recomienda utilzar workers para las tareas
+                 * de procesamiento de archivos.
+                */
+
+                console.log('LOG: SQLWasm listo y cargado');
+
+                // almacena los datos en memoria
+                db = new SQL.Database();
+
+                // ejecutamos la sentencia sql clasica
+                db.run('CREATE TABLE test (col1, col2);');
+                db.run('INSERT INTO test VALUES (?,?), (?,?)', [1,111,2,222]);
+
+                // sentencias preparadas
+                const stmt = db.prepare('SELECT * FROM test WHERE col1 BETWEEN $start AND $end');
+                stmt.getAsObject({$start: 1, $end: 1});
+
+                // vinculamos los valores
+                stmt.bind({$start: 1, $end: 2});
+
+                while (stmt.step()) {
+                    const row = stmt.getAsObject();
+                    console.log('LOG: row: ' + JSON.stringify(row));
+                }
+
+                // liberamos recursos para la memoria
+                stmt.free();
+
+                // habilitamos el boton
+                button.disabled = false;
+
+            } catch (error) {
+                console.error(error);
+            }
+        })();
+    </script>
+</body>
+</html>
